@@ -1,0 +1,21 @@
+PriceListPane {
+    height: 1fr;
+}
+
+PriceListGraph {
+    margin-bottom: 1;
+}
+
+#date-picker-container {
+    height: auto;
+    margin-top: 1;
+    padding: 0 1;
+    grid-size: 4 1;
+    grid-gutter: 0 1;
+    grid-columns: auto 1fr auto auto;
+}
+
+#date-picker-label {
+    height: 100%;
+    content-align: center middle;
+}

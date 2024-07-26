@@ -1,0 +1,34 @@
+[project]
+name = "luz-metronomo"
+dynamic = ["version"]
+requires-python = ">=3.11"
+dependencies = [
+    "confight==2.0",
+    "pydantic==2.8.2",
+    "textual==0.73.0",
+    "textual-plotext==0.2.1",
+    "urllib3==2.2.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "textual-dev==1.5.1",
+    "mypy==1.11.0",
+]
+doc = [
+    "mkdocs==1.6.0",
+    "mike==2.1.2",
+]
+
+[project.scripts]
+luz-metronomo = "luz_metronomo.cli:cli"
+
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+luz_metronomo = ["luz_metronomo_app.tcss"]
+
+# NOTE: Intentionally left empty
+[tool.setuptools_scm]

@@ -1,0 +1,43 @@
+---
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      # Attempt to load all TOML files to verify syntax
+      - id: check-toml
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.13.2
+    hooks:
+      # Sort imports alphabetically, and automatically separated into sections
+      # and by type
+      - id: isort
+        args: [--profile=black]
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.3.0
+    hooks:
+      # Fix common misspellings in source code
+      - id: codespell
+        args: [--write-changes]
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.5.4
+    hooks:
+      # Fast Python linter
+      - id: ruff
+        args: [--fix]
+  - repo: https://github.com/PyCQA/docformatter
+    rev: v1.7.5
+    hooks:
+      # Format docstrings according to PEP-257
+      - id: docformatter
+        args: [
+          --in-place, --black, --wrap-descriptions=100,
+          --make-summary-multi-line, --pre-summary-newline,
+          --close-quotes-on-newline
+        ]
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      # Format all Python code
+      - id: black
+        args: [--line-length=100, --workers=4, --quiet, --fast]
